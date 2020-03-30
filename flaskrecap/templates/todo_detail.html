@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if todo %}
+    <ul>
+            <li>
+                Task: {{ todo.task }}
+            </li>
+            <li>
+                Assignee: {{ todo.assignee }}
+            </li>
+            <li>
+                Assigner: {{ todo.assigner }}
+            </li>
+            <li>
+                Description: {{ todo.description }}
+            </li>
+            <li>
+                Time Added: {{ todo.date_created }}
+            </li>
+        </ul>
+        <a href="{{ url_for('delete_todo', todo_id = todo.id ) }}"><button class="btn btn-danger">Delete</button></a>
+    {% else %}
+        <h2>Nothing to see here</h2>
+
+    {% endif %}
+
+{% endblock content %}

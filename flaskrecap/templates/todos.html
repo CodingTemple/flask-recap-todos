@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if todos %}
+    {% for todo in todos %}
+            <ul>
+                <li>
+                    Task: {{ todo.task }}
+                </li>
+                <li>
+                    Assignee: {{ todo.assignee }}
+                </li>
+                <li>
+                    Assigner: {{ todo.assigner }}
+                </li>
+                <li>
+                    Description: {{ todo.description }}
+                </li>
+                <li>
+                    Time Added: {{ todo.date_created }}
+                </li>
+            </ul>
+            <a href="{{ url_for('update_todo', todo_id = todo.id ) }}"><button class="btn btn-success">Update</button></a>
+            <a href="{{ url_for('todo_detail', todo_id = todo.id ) }}"><button class="btn btn-primary">Todo Details</button></a>
+        {% else %}
+            <h2>You don't have anything tasks yet...just wait you willl...</h2>
+            {% endfor %}
+    {% endif %}
+
+{% endblock content %}

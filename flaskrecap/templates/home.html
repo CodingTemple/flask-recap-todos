@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h3>Todo List</h3>
+
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <fieldset>
+            {{ form.task.label }}
+            {{ form.task(class='form-control',placeholder='Add a Task')}}
+        </fieldset>
+        <fieldset>
+            {{ form.assignee.label }}
+            {{ form.assignee(class='form-control', placeholder="Who is this for?")}}
+        </fieldset>
+        <fieldset>
+            {{ form.assigner.label }}
+            {{ form.assigner(class='form-control', placeholder="Assigner")}}
+        </fieldset>
+        <fieldset>
+            {{ form.description.label }}
+            {{ form.description(class='form-control', placeholder='Give Brief Description')}}
+        </fieldset>
+        {{ form.submit(class='btn btn-success') }}
+    </form>
+
+{% endblock content %}
